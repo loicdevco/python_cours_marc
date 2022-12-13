@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}
+Tennis 
+{% endblock title %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <h1 class="text-center">Participants</h1>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group mb-3">                
+                {{participant_form.nom_participant}}  
+                {{participant_form.prenom_participant}} 
+                
+                {{participant_form.ligue}}
+                
+                           
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">AJOUTER</button>
+        </form>
+        <h4 class="bg-secondary text-light py-2 rounded text-center">Listes des Participants</h4>
+
+        <ul class="list-group">
+            {% for participant in participant_list %}
+            {% for ligue in ligue_list %}
+            <li class="list-group-item list-group-item-action">
+                {% if participant.completed == True %}
+                <strike>{{participant.nom_participant}} {{participant.prenom_participant }} <span class="badge bg-success text-light">joue à</span> {{ ligue.nom_ligue }}</strike>
+                {% else %}
+                {{participant.nom_participant}} {{participant.prenom_participant }} <span class="badge bg-success text-light">joue à</span> {{ ligue.nom_ligue }}
+                {% endif %}
+              <div class="float-end">
+                    <a href="{% url 'tennis:match' participant.id %}" class="btn btn-sm btn-success">Choisir</a>
+
+                    <a href="{% url 'tennis:update' participant.id %}" class="btn btn-sm btn-warning">Modifier</a>
+
+                    <a href="{% url 'tennis:delete' participant.id %}" class="btn btn-sm btn-danger">Supprimer</a>
+                </div>
+            </li>
+            {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock content %}

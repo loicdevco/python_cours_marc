@@ -1,0 +1,20 @@
+Mes issues : 
+-> Problème au niveau des ligues toujours d'actualité: impossible de choisir ma liste sur un select
+-> Manque de temps pour finir mon classement et raccorder le score au match d'un participant
+
+Mes difficultés : 
+-> Manipulation des données parfois complexes :
+ex: j'avais du mal à sortir ou à ajouter une donnée dans ce style d'array :
+    [{'nom_participant': 'Meinard'}, {'nom_participant': 'Neige'}, {'nom_participant': 'jean'}, {'nom_participant': 'jc'}, {'nom_participant': 'thoum'}, {'nom_participant': 'larcher'}]
+
+Les + : 
+Manipulation de Django et du shell qui devient aisé
+Python language assez proche de notre algo donc c'est plus facile
+Même si c'était pas l'exercice, la manipulation des templates est assez pratique.
+
+Manque de temps:
+J'ai ajouté deux fonctions dans views.py:
+- players_pairs : fonction qui retourne un couple de joueur
+- classement : fonction qui trie mon score
+
+Même si j'ai galéré c'était top. Merci !!! Je vais quand même continuer car je déteste finir sur une défaite :)

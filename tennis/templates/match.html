@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block title %}
+Tennis 
+{% endblock title %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <h1 class="text-center">Match</h1>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped-columns">
+            <thead>
+                <tr>
+                    <th colspan="4" class="text-center">Participants</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-dark">
+                    <td class="text-center">Participants</td>
+                    <td class="text-center">Score Participant</td>
+                </tr>
+                {% for match_list in match_tab %}
+                <tr class="table-dark">
+                    
+                    <td>{{ match_list.nom_participant }}</td>
+                    
+                    <td class="text-center">{{ score1 }}</td>
+                </tr>
+               {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+</div>
+
+<div class="card bg-success mt-5 mb-5">
+    <div class="card-header">
+        <h1 class="text-center">Classement</h1>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped-columns">
+            <thead>
+                <tr>
+                    <th colspan="4" class="text-center">Participants</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-dark">
+                    <td class="text-center">Participants</td>
+                    <td class="text-center">Score Participant</td>
+                </tr>
+                {% for perso_participant in participant_final_perso %}
+                <tr class="table-dark">
+                    
+                        <td>{{ perso_participant.nom_participant }}</td>
+                    <td class="text-center">{{ scorefinal }}</td>
+                </tr>
+                {% endfor %}
+                {% for autre_participant in participant_final_other %}
+                <tr class="table-dark">
+                    
+                    <td>{{ autre_participant.nom_participant }}</td>
+                    <td class="text-center">{{ scorefinal }}</td>
+                </tr>
+                
+                {% endfor %}
+                    
+                
+               
+            </tbody>
+        </table>
+        
+    </div>
+</div>
+{% endblock content %}

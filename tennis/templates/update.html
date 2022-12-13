@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}
+Modifier un participant | 
+{% endblock title %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1 class="text-center">Tennis</h1>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <div id="completed" class="input-group-text" data-bs-toggle="tooltip" data-bs-placement="bottom" title="participant inscrit">
+                    {{edit_participant_form.completed}}
+                </div>
+                {{edit_participant_form.nom_participant}}  
+                {{edit_participant_form.prenom_participant}} 
+                {{ edit_participant_form.ligue }}
+                <button type="submit" class="btn btn-lg btn-info">Modifier</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}
